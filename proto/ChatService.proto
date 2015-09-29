@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package if4031;
+
+service ChatService {
+	rpc nick(name) returns (grpcString) {}
+	rpc anonNick(grpcVoid) returns (grpcString) {}
+	rpc join(nameChannel) returns (grpcBool) {}
+	rpc leave(nameChannel) returns (grpcBool) {}
+	rpc exit(name) returns (grpcBool) {}
+	rpc receive(name) returns (grpcString) {}
+	rpc send(nameChannelMsg) returns (grpcBool) {}
+}
+
+message name {
+	string userName = 1;
+}
+
+message nameChannel {
+	string userName = 1;
+	string channelName = 2;
+}
+
+message nameChannelMsg {
+	string userName = 1;
+	string channelName = 2;
+	string userMessage = 3;
+}
+
+message grpcString {
+	string value = 1;
+}
+
+message grpcBool {
+	bool value = 1;
+}
+
+message grpcVoid {
+	
+}
+
+
+
